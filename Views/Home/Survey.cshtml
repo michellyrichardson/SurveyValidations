@@ -1,0 +1,70 @@
+@model Info
+<!-- change for the main name (this case "Info") for you public class in Models Info.cs -->;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Dojo Survey</title>
+</head>
+<body>
+<div class="container">
+
+<!--Connect to Validations here in asp action and name of your view -->
+    <form asp-action="NewStudent" asp-controller="Home" method="post">
+
+        <h1 id="title">Dojo Survey</h1>
+        
+    <fieldset>
+    <legend></legend>
+        <div>
+            <!--use asp-for in connection with the models info.cs -->
+            <span asp-asp-validation-for="Name"></span>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" value="" placeholder="Enter name here">   
+        </div>
+<div>
+<!-- -----------------Dropdown menus--------------------------------- -->
+    <div class="form-row align-items-center">
+        <div class="col-auto my-1">
+            <span asp-asp-validation-for="Location"></span>
+            <label class="my-1 mr-2" asp-for="Location"></label>
+            <select class="custom-select my-1 mr-sm-2" id="dropdown" asp-for="Location">
+                <option value="Seattle">Seattle</option>
+                <option value="Virginia">Virginia</option>
+                <option value="San Jose">San Jose</option>
+            </select>
+        </div>
+    <br><br>
+        <div class="col-auto my-1">
+            <span asp-asp-validation-for="Language"></span>
+            <label class="my-1 mr-2" asp-for="Language"></label>
+            <select class="custom-select my-1 mr-sm-2" id="dropdown2" asp-for="Language">
+                <option value="Python">Python</option>
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>  
+        </select>
+        </div>
+    </div>
+<!-- --------------------Text Areas------------------------------ -->
+    <fieldset>
+    <legend>Leave your Comment</legend>
+        <div>
+            <span asp-asp-validation-for="Message"></span>
+            <label for="Message"></label>
+            <textarea asp-for="Message" placeholder="(Optional) Enter Text Here" style="margin: 0px; width: 500px; height: 215px;"></textarea>   
+        </div>
+    </fieldset>
+<br><br>
+        <div id="submitbutton">
+            <button type="submit" class="btn btn-primary my-1" id="submit">Submit</button>   
+        </div>
+    </form>
+    </div>
+</div>
+</body>
+</html>
